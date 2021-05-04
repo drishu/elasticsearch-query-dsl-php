@@ -27,12 +27,12 @@ class TermMatcherTest extends AbstractJsonSerializeTest
             '{
                 "term": {
                     "field1": {
-                        "value": "value1",
+                        "value": ["value1", "value2"],
                         "boost": 1.0
                     }
                 }
             }',
-            new TermMatcher('field1', 'value1', ['boost' => 1.0]),
+            new TermMatcher('field1', ['value1', 'value2'], ['boost' => 1.0]),
         ];
 
         return $dataSets;

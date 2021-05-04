@@ -35,14 +35,11 @@ class MatchPhraseMatcher implements MatcherInterface
      */
     public function jsonSerialize()
     {
-        $body = [];
-        $body['query'] = $this->query;
-        $body += $this->options;
-
         return [
-            'match_phrase' => [
-                $this->field => $body,
-            ],
+            'phrase' => [
+                'query' => $this->query,
+                'field' => $this->field,
+            ] + $this->options,
         ];
     }
 }
